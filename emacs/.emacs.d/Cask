@@ -1,0 +1,9 @@
+(source gnu)
+(source melpa)
+(source melpa-stable)
+
+(depends-on "cider")
+(depends-on "clojure-mode")
+(depends-on "neotree")
+(depends-on "pallet")
+(depends-on "rainbow-delimiters")
