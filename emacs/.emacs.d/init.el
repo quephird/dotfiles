@@ -9,5 +9,9 @@
 (setq mouse-wheel-scroll-amount '(1 ((shift) 1) ((control) . nil)))
 
 (global-set-key [f8] 'neotree-toggle)
+(setq-default neo-show-hidden-files t)
 
 (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+
+(global-set-key (kbd "C-x g") 'magit-status)
+
