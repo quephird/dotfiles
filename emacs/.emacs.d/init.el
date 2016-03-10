@@ -15,3 +15,4 @@
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
+(add-hook 'after-init-hook 'global-company-mode)
