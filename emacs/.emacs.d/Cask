@@ -8,4 +8,6 @@
 (depends-on "magit")
 (depends-on "neotree")
 (depends-on "pallet")
+(depends-on "paredit")
+(depends-on "projectile")
 (depends-on "rainbow-delimiters")
