@@ -8,6 +8,13 @@
 (mouse-wheel-mode t)
 (setq mouse-wheel-scroll-amount '(1 ((shift) 1) ((control) . nil)))
 
+(require 'clojure-mode)
+(progn
+  (put-clojure-indent 'fact 'defun)
+  (put-clojure-indent 'facts 'defun)
+  (put-clojure-indent 'future-fact 'defun)
+  (put-clojure-indent 'future-facts 'defun))
+
 (windmove-default-keybindings)
 
 (global-linum-mode)
