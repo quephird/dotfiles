@@ -8,6 +8,8 @@
 (mouse-wheel-mode t)
 (setq mouse-wheel-scroll-amount '(1 ((shift) 1) ((control) . nil)))
 
+(require 'darcula)
+
 (require 'clojure-mode)
 (progn
   (put-clojure-indent 'fact 'defun)

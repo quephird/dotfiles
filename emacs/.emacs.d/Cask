@@ -5,6 +5,7 @@
 (depends-on "cider")
 (depends-on "clojure-mode")
 (depends-on "company")
+(depends-on "darcula-theme")
 (depends-on "magit")
 (depends-on "neotree")
 (depends-on "pallet")
