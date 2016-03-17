@@ -1,4 +1,4 @@
-(require 'cask "/usr/local/Cellar/cask/0.7.2_1/cask.el")
+(require 'cask "/usr/local/Cellar/cask/0.7.4/cask.el")
 (cask-initialize)
 (require 'pallet)
 (pallet-mode t)
@@ -32,6 +32,7 @@
   (put-clojure-indent 'facts 'defun)
   (put-clojure-indent 'future-fact 'defun)
   (put-clojure-indent 'future-facts 'defun))
+
 (global-set-key [f8] 'neotree-toggle)
 (setq-default neo-show-hidden-files t)
 
