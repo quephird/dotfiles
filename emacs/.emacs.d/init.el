@@ -8,7 +8,23 @@
 (mouse-wheel-mode t)
 (setq mouse-wheel-scroll-amount '(1 ((shift) 1) ((control) . nil)))
 
-(require 'darcula)
+(defun copy-from-osx ()
+  (shell-command-to-string "pbpaste"))
+
+(defun paste-to-osx (text &optional push)
+  (let ((process-connection-type nil))
+    (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+      (process-send-string proc text)
+      (process-send-eof proc))))
+
+(setq interprogram-cut-function 'paste-to-osx)
+(setq interprogram-paste-function 'copy-from-osx)
+
+(windmove-default-keybindings)
+
+(global-linum-mode)
+
+(require 'darcula-theme)
 
 (require 'clojure-mode)
 (progn
@@ -16,11 +32,6 @@
   (put-clojure-indent 'facts 'defun)
   (put-clojure-indent 'future-fact 'defun)
   (put-clojure-indent 'future-facts 'defun))
-
-(windmove-default-keybindings)
-
-(global-linum-mode)
-
 (global-set-key [f8] 'neotree-toggle)
 (setq-default neo-show-hidden-files t)
 
@@ -44,3 +55,4 @@
  '(neo-dir-link-face ((t (:foreground "yellow"))))
  '(neo-file-link-face ((t (:foreground "white"))))
  '(neo-root-dir-face ((t (:foreground "brightmagenta")))))
+
