@@ -1,4 +1,4 @@
-(require 'cask "/usr/local/Cellar/cask/0.7.2_1/cask.el")
+(require 'cask "/usr/local/Cellar/cask/0.7.4/cask.el")
 (cask-initialize)
 (require 'pallet)
 (pallet-mode t)
@@ -8,7 +8,7 @@
 (mouse-wheel-mode t)
 (setq mouse-wheel-scroll-amount '(1 ((shift) 1) ((control) . nil)))
 
-(require 'darcula)
+(require 'darcula-theme)
 
 (require 'clojure-mode)
 (progn
@@ -16,6 +16,24 @@
   (put-clojure-indent 'facts 'defun)
   (put-clojure-indent 'future-fact 'defun)
   (put-clojure-indent 'future-facts 'defun))
+
+(defun pbcopy ()
+  (interactive)
+  (call-process-region (point) (mark) "pbcopy")
+  (setq deactivate-mark t))
+
+(defun pbpaste ()
+  (interactive)
+  (call-process-region (point) (if mark-active (mark) (point)) "pbpaste" t t))
+
+(defun pbcut ()
+  (interactive)
+  (pbcopy)
+  (delete-region (region-beginning) (region-end)))
+
+(global-set-key (kbd "C-c c") 'pbcopy)
+(global-set-key (kbd "C-c v") 'pbpaste)
+(global-set-key (kbd "C-c x") 'pbcut)
 
 (windmove-default-keybindings)
 
