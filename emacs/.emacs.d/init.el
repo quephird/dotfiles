@@ -8,6 +8,17 @@
 (mouse-wheel-mode t)
 (setq mouse-wheel-scroll-amount '(1 ((shift) 1) ((control) . nil)))
 
+(require 'darcula-theme)
+
+(require 'ruby-mode)
+
+(require 'clojure-mode)
+(progn
+  (put-clojure-indent 'fact 'defun)
+  (put-clojure-indent 'facts 'defun)
+  (put-clojure-indent 'future-fact 'defun)
+  (put-clojure-indent 'future-facts 'defun))
+
 (defun copy-from-osx ()
   (shell-command-to-string "pbpaste"))
 
@@ -19,22 +30,13 @@
 
 (setq interprogram-cut-function 'paste-to-osx)
 (setq interprogram-paste-function 'copy-from-osx)
-
 (windmove-default-keybindings)
 
 (global-linum-mode)
 
-(require 'darcula-theme)
-
-(require 'clojure-mode)
-(progn
-  (put-clojure-indent 'fact 'defun)
-  (put-clojure-indent 'facts 'defun)
-  (put-clojure-indent 'future-fact 'defun)
-  (put-clojure-indent 'future-facts 'defun))
-
 (global-set-key [f8] 'neotree-toggle)
 (setq-default neo-show-hidden-files t)
+(neotree-show)
 
 (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 
@@ -56,4 +58,3 @@
  '(neo-dir-link-face ((t (:foreground "yellow"))))
  '(neo-file-link-face ((t (:foreground "white"))))
  '(neo-root-dir-face ((t (:foreground "brightmagenta")))))
-
